@@ -10,16 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/test")
 public class TestController {
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET , produces = {"application/json"})
-    public String hello(){
-        return "Hello from Server";
+    @RequestMapping(value = "/hello", method = RequestMethod.GET, produces = {"application/json"})
+    public String test() {
+        return "Hello From Server";
     }
 
-    @RequestMapping(value = "/person" , method = RequestMethod.POST , produces = {"application/json"})
-    public TestPerson test(@RequestBody TestPerson testPerson) {
+    @RequestMapping(value = "/person", method = RequestMethod.POST, produces = {"application/json"})
+    public TestPerson testPost(@RequestBody TestPerson testPerson) {
         testPerson.setFirstName(testPerson.getFirstName() + " from server");
         return testPerson;
     }
+
 }
-
-
